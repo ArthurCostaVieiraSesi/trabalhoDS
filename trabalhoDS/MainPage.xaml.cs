@@ -1,24 +1,22 @@
-﻿namespace trabalhoDS;
+﻿using Microsoft.Maui.Controls;
 
-public partial class MainPage : ContentPage
+namespace trabalhoDS
 {
-	int count = 0;
+    public partial class MainPage : ContentPage
+    {
+        public MainPage()
+        {
+            InitializeComponent();
+        }
 
-	public MainPage()
-	{
-		InitializeComponent();
-	}
+		void Cadastro(object sender, EventArgs e)
+        {
+			Application.Current.MainPage = new CadastroPage();
+        }
 
-	private void OnCounterClicked(object sender, EventArgs e)
-	{
-		count++;
-
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
-
-		SemanticScreenReader.Announce(CounterBtn.Text);
-	}
+		void Login(object sender, EventArgs e)
+        {
+			Application.Current.MainPage = new LoginPage();
+        }
+    }
 }
-

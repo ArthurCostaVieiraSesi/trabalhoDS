@@ -1,6 +1,6 @@
 namespace Modelos
 {
-public class Pessoa
+public class Pessoa : Registro
 {
     string nome;
     string telefone;

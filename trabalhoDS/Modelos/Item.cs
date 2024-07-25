@@ -1,6 +1,6 @@
 namespace Modelos
 {
-public class Item
+public class Item : Registro
 {
     string nome;
     string estoque;

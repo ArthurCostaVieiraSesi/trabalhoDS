@@ -1,41 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="trabalhoDS.MainPage">
+             x:Class="trabalhoDS.MainPage"
+             BackgroundColor="#607D8B"
+             Shell.NavBarIsVisible="false">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
+    <Grid VerticalOptions="Center" HorizontalOptions="Center">
+        <StackLayout Padding="20" Spacing="20" HorizontalOptions="Center" VerticalOptions="Center">
 
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
+            <!-- Image and Title -->
+            <StackLayout HorizontalOptions="Center">
+                <Image Source="lupa_icon.png" HeightRequest="100" WidthRequest="100"/>
+                <Label Text="LUPA" FontSize="Large" TextColor="#FFD600" HorizontalOptions="Center"/>
+            </StackLayout>
 
-            <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
+            <!-- Description -->
+            <Label Text="Bem vindo(a) a Lupa, sua plataforma de gerenciamento do seu negócio. Clique abaixo para se registrar em nossa plataforma."
+                   FontSize="Medium" TextColor="White" HorizontalTextAlignment="Center"/>
 
-            <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
+            <!-- Buttons -->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="20">
+                <Button Text="CADASTRO" BackgroundColor="#E0E0E0" TextColor="Black" WidthRequest="110" Clicked="Cadastro"/>
+                <Button Text="ENTRAR" BackgroundColor="#E0E0E0" TextColor="Black" WidthRequest="110" Clicked="Login"/>
+            </StackLayout>
 
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
-
-        </VerticalStackLayout>
-    </ScrollView>
-
+        </StackLayout>
+    </Grid>
 </ContentPage>
+
