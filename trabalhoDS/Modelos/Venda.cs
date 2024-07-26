@@ -10,6 +10,7 @@ namespace Venda
         string total;
         string desconto;
         int id;
+        Estoque estoque;
 
         public void SetCliente (Cliente cliente)
         {
@@ -69,6 +70,16 @@ namespace Venda
     public int GetId()
     {
         return id;
+    }
+
+    public void SetEstoque (Estoque estoque)
+    {
+        this.estoque = estoque;
+    }
+
+    public Estoque GetEstoque()
+    {
+        return estoque;
     }
 
     }
