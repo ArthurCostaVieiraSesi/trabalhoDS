@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="trabalhoDS.MenuPage"
+             BackgroundColor="#607D8B">
+
+    <Grid VerticalOptions="Center" HorizontalOptions="Center" Padding="20">
+        <StackLayout Spacing="20" HorizontalOptions="Center" VerticalOptions="Center">
+
+            <!-- Title -->
+            <Label Text="MENU" FontSize="Large" TextColor="#FFD600" HorizontalOptions="Center"/>
+
+            <!-- Description -->
+            <Label Text="Aqui é a pagina principal para você gestionar, abaixo você pode configurar e cadastrar seus fornecedores, estoques, materiais e produtos. Assim você pode observar os seus gastos e lucros, para saber a maneira mais otimizada de produzir."
+                   FontSize="Medium" TextColor="White" HorizontalTextAlignment="Center"/>
+
+            <!-- Buttons -->
+            <Grid RowSpacing="10" ColumnSpacing="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Text="FORNECEDORES" BackgroundColor="#E0E0E0" TextColor="Black"
+                        Grid.Row="0" Grid.Column="0" Clicked="OnGerenciarFornecedoresClicked"/>
+                <Button Text="MATERIAIS" BackgroundColor="#E0E0E0" TextColor="Black"
+                        Grid.Row="0" Grid.Column="1" Clicked="OnGerenciarMateriaisClicked"/>
+                <Button Text="CLIENTES" BackgroundColor="#E0E0E0" TextColor="Black"
+                        Grid.Row="1" Grid.Column="0" Clicked="OnGerenciarClientesClicked"/>
+                <Button Text="PRODUTOS" BackgroundColor="#E0E0E0" TextColor="Black"
+                        Grid.Row="1" Grid.Column="1" Clicked="OnGerenciarProdutosClicked"/>
+                <Button Text="ESTOQUES" BackgroundColor="#E0E0E0" TextColor="Black"
+                        Grid.Row="2" Grid.ColumnSpan="2" Clicked="OnEstoquesClicked"/>
+                <Button Text="VENDAS" BackgroundColor="#E0E0E0" TextColor="Black"
+                        Grid.Row="3" Grid.ColumnSpan="2" Clicked="OnVendasClicked"/>
+            </Grid>
+
+        </StackLayout>
+    </Grid>
+</ContentPage>

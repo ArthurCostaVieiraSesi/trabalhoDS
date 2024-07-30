@@ -16,7 +16,7 @@ namespace trabalhoDS
 
         private void OnNextButtonClicked(object sender, EventArgs e)
         {
-            // Implementar a ação do botão "próximo"
+            Application.Current.MainPage = new MenuPage();
         }
     }
 }

@@ -16,7 +16,7 @@ namespace trabalhoDS
 
         private void OnLoginButtonClicked(object sender, EventArgs e)
         {
-            // Implementar a ação do botão "login"
+            Application.Current.MainPage = new MenuPage();
         }
     }
 }
