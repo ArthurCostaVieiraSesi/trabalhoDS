@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="trabalhoDS.CadastroClientePage"
+             BackgroundColor="#607D8B">
+
+    <Grid VerticalOptions="Center" HorizontalOptions="Center" Padding="20">
+        <StackLayout Spacing="10" HorizontalOptions="Center" VerticalOptions="Center">
+
+            <!-- Title -->
+            <Label Text="CADASTRO DE CLIENTE" FontSize="Large" TextColor="#FFD600" HorizontalOptions="Center"/>
+
+            <!-- Form -->
+            <StackLayout Spacing="10">
+                <Label Text="NOME:" FontSize="Medium" TextColor="White"/>
+                <Entry x:Name="NomeEntry" BackgroundColor="White" TextColor="Black"/>
+
+                <Label Text="TELEFONE:" FontSize="Medium" TextColor="White"/>
+                <Entry x:Name="TelefoneEntry" BackgroundColor="White" TextColor="Black"/>
+
+                <Label Text="CPF:" FontSize="Medium" TextColor="White"/>
+                <Entry x:Name="CpfEntry" BackgroundColor="White" TextColor="Black"/>
+
+                <Label Text="EMAIL:" FontSize="Medium" TextColor="White"/>
+                <Entry x:Name="EmailEntry" BackgroundColor="White" TextColor="Black"/>
+            </StackLayout>
+
+            <!-- Buttons -->
+            <Grid ColumnSpacing="20" Margin="0,20,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Text="◀" BackgroundColor="Red" TextColor="Black" Grid.Column="0"
+                        Clicked="OnBackButtonClicked"/>
+                <Button Text="▶" BackgroundColor="Green" TextColor="Black" Grid.Column="1"
+                        Clicked="OnSaveButtonClicked"/>
+            </Grid>
+
+        </StackLayout>
+    </Grid>
+</ContentPage>

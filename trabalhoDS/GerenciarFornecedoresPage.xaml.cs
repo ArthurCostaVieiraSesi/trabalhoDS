@@ -11,7 +11,7 @@ namespace trabalhoDS
 
         private void OnCadastrarProdutosClicked(object sender, EventArgs e)
         {
-            // Implementar a navegação ou ação para cadastrar produtos
+            Application.Current.MainPage = new CadastroFornecedorPage();
         }
 
         private void OnEditarProdutosClicked(object sender, EventArgs e)
