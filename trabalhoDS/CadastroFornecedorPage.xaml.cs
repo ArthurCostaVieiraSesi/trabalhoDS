@@ -16,15 +16,32 @@ namespace trabalhoDS
 
         private void OnSaveButtonClicked(object sender, EventArgs e)
         {
-            // Implementar a ação do botão salvar
-            // Exemplo: Obter os valores dos campos e salvar o fornecedor
+            if (string.IsNullOrWhiteSpace(NomeEntry.Text) ||
+                string.IsNullOrWhiteSpace(CnpjCpfEntry.Text) ||
+                string.IsNullOrWhiteSpace(CepEntry.Text) ||
+                string.IsNullOrWhiteSpace(TelefoneEntry.Text) ||
+                string.IsNullOrWhiteSpace(MateriaisEditor.Text))
+            {
+                ErrorFrame.IsVisible = true;
+            }
+            else
+            {
+            
             string nome = NomeEntry.Text;
             string cnpjCpf = CnpjCpfEntry.Text;
             string cep = CepEntry.Text;
             string telefone = TelefoneEntry.Text;
             string materiais = MateriaisEditor.Text;
 
-            // Aqui você pode adicionar a lógica para salvar os dados do fornecedor
+            ErrorFrame.IsVisible = false;
+            Application.Current.MainPage = new GerenciarFornecedoresPage();
+            }
         }
+
+        private void OnErrorOkButtonClicked(object sender, EventArgs e)
+        {
+            ErrorFrame.IsVisible = false;
+        }
+
     }
 }

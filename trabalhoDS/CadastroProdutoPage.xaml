@@ -41,6 +41,14 @@
                         Clicked="OnSaveButtonClicked"/>
             </Grid>
 
+            <Frame x:Name="ErrorFrame" BackgroundColor="#FFCDD2" BorderColor="Red" IsVisible="False"
+                   VerticalOptions="Center" HorizontalOptions="Center" Padding="20" CornerRadius="10">
+                <StackLayout Spacing="10" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="DADOS INVALIDOS" FontSize="Large" TextColor="Red" HorizontalOptions="Center"/>
+                    <Button Text="OK" BackgroundColor="#B71C1C" TextColor="White" Clicked="OnErrorOkButtonClicked"/>
+                </StackLayout>
+            </Frame>
+
         </StackLayout>
     </Grid>
 </ContentPage>

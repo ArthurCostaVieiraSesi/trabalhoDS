@@ -1,28 +1,25 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="trabalhoDS.CadastroPage"
+             x:Class="trabalhoDS.CadastroMaterialPage"
              BackgroundColor="#607D8B">
 
     <Grid VerticalOptions="Center" HorizontalOptions="Center" Padding="20">
-        <StackLayout Spacing="20" HorizontalOptions="Center" VerticalOptions="Center">
+        <StackLayout Spacing="10" HorizontalOptions="Center" VerticalOptions="Center">
 
             <!-- Title -->
-            <Label Text="CADASTRO" FontSize="Large" TextColor="#FFD600" HorizontalOptions="Center"/>
+            <Label Text="CADASTRO DE MATERIAL" FontSize="Large" TextColor="#FFD600" HorizontalOptions="Center"/>
 
             <!-- Form -->
             <StackLayout Spacing="10">
                 <Label Text="NOME:" FontSize="Medium" TextColor="White"/>
                 <Entry x:Name="NomeEntry" BackgroundColor="White" TextColor="Black"/>
 
-                <Label Text="CNPJ/CPF:" FontSize="Medium" TextColor="White"/>
-                <Entry x:Name="CnpjCpfEntry" BackgroundColor="White" TextColor="Black"/>
+                <Label Text="DESCRIÇÃO:" FontSize="Medium" TextColor="White"/>
+                <Entry x:Name="DescricaoEntry" BackgroundColor="White" TextColor="Black"/>
 
-                <Label Text="SENHA:" FontSize="Medium" TextColor="White"/>
-                <Entry x:Name="SenhaEntry" IsPassword="True" BackgroundColor="White" TextColor="Black"/>
-                
-                <Label Text="CEP:" FontSize="Medium" TextColor="White"/>
-                <Entry x:Name="CepEntry" BackgroundColor="White" TextColor="Black"/>
+                <Label Text="CUSTO:" FontSize="Medium" TextColor="White"/>
+                <Entry x:Name="CustoEntry" BackgroundColor="White" TextColor="Black"/>
             </StackLayout>
 
             <!-- Buttons -->
@@ -35,7 +32,7 @@
                 <Button Text="◀" BackgroundColor="Red" TextColor="Black" Grid.Column="0"
                         Clicked="OnBackButtonClicked"/>
                 <Button Text="▶" BackgroundColor="Green" TextColor="Black" Grid.Column="1"
-                        Clicked="OnNextButtonClicked"/>
+                        Clicked="OnSaveButtonClicked"/>
             </Grid>
 
             <Frame x:Name="ErrorFrame" BackgroundColor="#FFCDD2" BorderColor="Red" IsVisible="False"

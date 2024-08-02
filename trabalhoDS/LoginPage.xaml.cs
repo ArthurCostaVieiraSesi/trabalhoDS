@@ -16,7 +16,24 @@ namespace trabalhoDS
 
         private void OnLoginButtonClicked(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(CnpjCpfEntry.Text) ||
+                string.IsNullOrWhiteSpace(SenhaEntry.Text))
+            {
+                ErrorFrame.IsVisible = true;
+            }
+            else
+            {
+            string cnpjcpf = CnpjCpfEntry.Text;
+            string senha = SenhaEntry.Text;
+
+            ErrorFrame.IsVisible = false;
             Application.Current.MainPage = new MenuPage();
+            }
+        }
+
+        private void OnErrorOkButtonClicked(object sender, EventArgs e)
+        {
+            ErrorFrame.IsVisible = false;
         }
     }
 }

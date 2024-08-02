@@ -2,36 +2,34 @@ using Microsoft.Maui.Controls;
 
 namespace trabalhoDS
 {
-    public partial class CadastroClientePage : ContentPage
+    public partial class CadastroMaterialPage : ContentPage
     {
-        public CadastroClientePage()
+        public CadastroMaterialPage()
         {
             InitializeComponent();
         }
 
         private void OnBackButtonClicked(object sender, EventArgs e)
         {
-            Application.Current.MainPage = new GerenciarClientesPage();
+            Application.Current.MainPage = new GerenciarMateriaisPage();
         }
 
         private void OnSaveButtonClicked(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(NomeEntry.Text) ||
-                string.IsNullOrWhiteSpace(TelefoneEntry.Text) ||
-                string.IsNullOrWhiteSpace(CpfEntry.Text) ||
-                string.IsNullOrWhiteSpace(EmailEntry.Text))
+                string.IsNullOrWhiteSpace(DescricaoEntry.Text) ||
+                string.IsNullOrWhiteSpace(CustoEntry.Text))
             {
                 ErrorFrame.IsVisible = true;
             }
             else
             {
             string nome = NomeEntry.Text;
-            string telefone = TelefoneEntry.Text;
-            string cpf = CpfEntry.Text;
-            string email = EmailEntry.Text;
+            string descricao = DescricaoEntry.Text;
+            string custo = CustoEntry.Text;
 
             ErrorFrame.IsVisible = false;
-            Application.Current.MainPage = new GerenciarClientesPage();
+            Application.Current.MainPage = new GerenciarMateriaisPage();
             }
         }
 
@@ -39,6 +37,5 @@ namespace trabalhoDS
         {
             ErrorFrame.IsVisible = false;
         }
-
     }
 }
