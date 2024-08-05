@@ -1,28 +1,34 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="trabalhoDS.CadastroPage"
+             x:Class="trabalhoDS.CadastroVendaPage"
              BackgroundColor="#607D8B">
 
     <Grid VerticalOptions="Center" HorizontalOptions="Center" Padding="20">
-        <StackLayout Spacing="20" HorizontalOptions="Center" VerticalOptions="Center">
+        <StackLayout Spacing="10" HorizontalOptions="Center" VerticalOptions="Center">
 
             <!-- Title -->
-            <Label Text="CADASTRO" FontSize="Large" TextColor="#FFD600" HorizontalOptions="Center"/>
+            <Label Text="CADASTRO DE VENDA" FontSize="Large" TextColor="#FFD600" HorizontalOptions="Center"/>
 
             <!-- Form -->
             <StackLayout Spacing="10">
-                <Label Text="NOME:" FontSize="Medium" TextColor="White"/>
-                <Entry x:Name="NomeEntry" BackgroundColor="White" TextColor="Black"/>
+                <Label Text="CLIENTE:" FontSize="Medium" TextColor="White"/>
+                <Entry x:Name="ClienteEntry" BackgroundColor="White" TextColor="Black"/>
 
-                <Label Text="CNPJ/CPF:" FontSize="Medium" TextColor="White"/>
-                <Entry x:Name="CnpjCpfEntry" BackgroundColor="White" TextColor="Black"/>
+                <Label Text="DATA PEDIDO:" FontSize="Medium" TextColor="White"/>
+                <Entry x:Name="DataPedidoEntry" BackgroundColor="White" TextColor="Black"/>
 
-                <Label Text="SENHA:" FontSize="Medium" TextColor="White"/>
-                <Entry x:Name="SenhaEntry" IsPassword="True" BackgroundColor="White" TextColor="Black"/>
-                
-                <Label Text="CEP:" FontSize="Medium" TextColor="White"/>
-                <Entry x:Name="CepEntry" BackgroundColor="White" TextColor="Black"/>
+                <Label Text="TOTAL:" FontSize="Medium" TextColor="White"/>
+                <Entry x:Name="TotalEntry" BackgroundColor="White" TextColor="Black"/>
+
+                <Label Text="DESCONTO:" FontSize="Medium" TextColor="White"/>
+                <Entry x:Name="DescontoEntry" BackgroundColor="White" TextColor="Black"/>
+
+                <Label Text="DATA ENTREGA:" FontSize="Medium" TextColor="White"/>
+                <Entry x:Name="DataEntregaEntry" BackgroundColor="White" TextColor="Black"/>
+
+                <Label Text="LISTA ESTOQUE:" FontSize="Medium" TextColor="White"/>
+                <Entry x:Name="ListaEstoqueEntry" BackgroundColor="White" TextColor="Black"/>
             </StackLayout>
 
             <!-- Buttons -->
@@ -35,10 +41,11 @@
                 <Button Text="◀" BackgroundColor="Red" TextColor="Black" Grid.Column="0"
                         Clicked="OnBackButtonClicked"/>
                 <Button Text="▶" BackgroundColor="Green" TextColor="Black" Grid.Column="1"
-                        Clicked="OnNextButtonClicked"/>
+                        Clicked="OnSaveButtonClicked"/>
             </Grid>
 
-
+            <!-- Error Frame -->
+            
         </StackLayout>
 
         <Frame x:Name="ErrorFrame" BackgroundColor="#FFCDD2" BorderColor="Red" IsVisible="False"

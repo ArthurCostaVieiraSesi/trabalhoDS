@@ -22,5 +22,13 @@
             <Button Text="◀" BackgroundColor="Red" TextColor="Black" HorizontalOptions="Start"
                     Clicked="OnBackButtonClicked"/>
         </StackLayout>
+
+        <Frame x:Name="ErrorFrame" BackgroundColor="#FFCDD2" BorderColor="Red" IsVisible="False"
+                   VerticalOptions="Center" HorizontalOptions="Center" Padding="20" CornerRadius="10">
+                <StackLayout Spacing="10" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="Não é possivel editar, pois não possui materiais cadastrados." FontSize="Large" TextColor="Red" HorizontalOptions="Center"/>
+                    <Button Text="OK" BackgroundColor="#B71C1C" TextColor="White" Clicked="OnErrorOkButtonClicked"/>
+                </StackLayout>
+            </Frame>
     </Grid>
 </ContentPage>

@@ -16,12 +16,18 @@ namespace trabalhoDS
 
         private void OnEditarProdutosClicked(object sender, EventArgs e)
         {
-            // Implementar a navegação ou ação para editar produtos
+            ErrorFrame.IsVisible = true;
         }
 
         private void OnBackButtonClicked(object sender, EventArgs e)
         {
             Application.Current.MainPage = new MenuPage();
+        }
+
+        private void OnErrorOkButtonClicked(object sender, EventArgs e)
+        {
+            // Esconder o Frame de erro ao clicar em OK
+            ErrorFrame.IsVisible = false;
         }
     }
 }
