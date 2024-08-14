@@ -3,7 +3,7 @@ namespace Modelos
 public class Fornecedor : Pessoa
 {
 
-    string cep;
+    public string cep { get; set; }
 
     public void SetCep (string cep)
     {

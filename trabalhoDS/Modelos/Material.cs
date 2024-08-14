@@ -3,6 +3,7 @@ namespace Modelos
     public class Material : Item
     {
         Fornecedor fornecedor;
+        public string descricao { get; set; }
 
     public void SetFornecedor (Fornecedor fornecedor)
     {
@@ -12,6 +13,16 @@ namespace Modelos
     public Fornecedor GetFornecedor()
     {
         return fornecedor;
+    }
+
+    public void SetDescricao (string descricao)
+    {
+        this.descricao = descricao;
+    }
+
+    public string GetDescricao()
+    {
+        return descricao;
     }
 
 

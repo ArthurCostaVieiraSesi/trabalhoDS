@@ -1,6 +1,8 @@
 namespace Modelos
 {
-public class Cliente : Pessoa
-{
-}
+    public class Cliente : Pessoa
+    {
+
+    }
+    
 }

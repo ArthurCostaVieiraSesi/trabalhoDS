@@ -1,9 +1,12 @@
+using Controles;
 using Microsoft.Maui.Controls;
+using Modelos;
 
 namespace trabalhoDS
 {
     public partial class CadastroFornecedorPage : ContentPage
     {
+        FornecedorControle fornecedorControle = new FornecedorControle();
         public CadastroFornecedorPage()
         {
             InitializeComponent();
@@ -26,12 +29,13 @@ namespace trabalhoDS
             }
             else
             {
-            
-            string nome = NomeEntry.Text;
-            string cnpjCpf = CnpjCpfEntry.Text;
-            string cep = CepEntry.Text;
-            string telefone = TelefoneEntry.Text;
-            string materiais = MateriaisEditor.Text;
+                var f = new Fornecedor();
+                f.nome = NomeEntry.Text;
+                f.cnpjCpf = CnpjCpfEntry.Text;
+                f.cep = CepEntry.Text;
+                f.telefone = TelefoneEntry.Text;
+                f.materiais = MateriaisEditor.Text;
+                fornecedorControle.CriarOuAtualizar(f);
 
             ErrorFrame.IsVisible = false;
             Application.Current.MainPage = new GerenciarFornecedoresPage();

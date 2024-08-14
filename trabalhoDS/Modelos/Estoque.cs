@@ -1,3 +1,5 @@
+using LiteDB;
+
 namespace Modelos
 {
     public class Estoque : Registro
@@ -5,13 +7,14 @@ namespace Modelos
 
     Produto produto;
 
-    string valor;
+    public string valor { get; set; }
 
-    string desconto;
+    public string desconto { get; set; }
 
-    string obs;
+    public string obs { get; set; }
 
-    int id;
+    [BsonId]
+    public int id { get; set; }
 
     public void SetProduto (Produto produto)
     {

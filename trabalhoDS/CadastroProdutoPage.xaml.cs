@@ -1,9 +1,12 @@
+using Controles;
 using Microsoft.Maui.Controls;
+using Modelos;
 
 namespace trabalhoDS
 {
     public partial class CadastroProdutoPage : ContentPage
     {
+        ProdutoControle produtoControle = new ProdutoControle();
         public CadastroProdutoPage()
         {
             InitializeComponent();
@@ -26,11 +29,13 @@ namespace trabalhoDS
             }
             else
             {
-            string nome = NomeEntry.Text;
-            string estoque = EstoqueEntry.Text;
-            string preco = PrecoEntry.Text;
-            string custoProducao = CustoProducaoEntry.Text;
-            string materiais = MateriaisEditor.Text;
+                var p = new Produto();
+                p.nome = NomeEntry.Text;
+                p.estoque = EstoqueEntry.Text;
+                p.preco = PrecoEntry.Text;
+                p.custo = CustoProducaoEntry.Text;
+                p.material = MateriaisEditor.Text;
+                produtoControle.CriarOuAtualizar(p);
 
             ErrorFrame.IsVisible = false;
             Application.Current.MainPage = new GerenciarProdutosPage();

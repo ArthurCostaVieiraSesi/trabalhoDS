@@ -1,12 +1,14 @@
+using LiteDB;
+
 namespace Modelos
 {
 public class Item : Registro
 {
-    string nome;
-    string estoque;
-    string custo;
-    string descricao;
-    int id;
+    public string nome { get; set; }
+    public string custo { get; set; }
+
+    [BsonId]
+    public int id { get; set; }
 
     public void SetNome (string nome)
     {
@@ -18,16 +20,6 @@ public class Item : Registro
         return nome;
     }
 
-    public void SetEstoque (string estoque)
-    {
-        this.estoque = estoque;
-    }
-
-    public string GetEstoque()
-    {
-        return estoque;
-    }
-
     public void SetCusto (string custo)
     {
         this.custo = custo;
@@ -36,16 +28,6 @@ public class Item : Registro
     public string GetCusto()
     {
         return custo;
-    }
-
-    public void SetDescricao (string descricao)
-    {
-        this.descricao = descricao;
-    }
-
-    public string GetDescricao()
-    {
-        return descricao;
     }
 
     public void SetId (int id)

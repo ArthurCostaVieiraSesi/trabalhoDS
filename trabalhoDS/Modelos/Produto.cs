@@ -5,7 +5,9 @@ public class Produto : Item
 
     Material material;
 
-    string preco;
+    public string preco { get; set; }
+
+    public string estoque { get; set; }
 
     public void SetPreco (string preco)
     {
@@ -25,6 +27,16 @@ public class Produto : Item
     public Material GetMaterial()
     {
         return material;
+    }
+
+    public void SetEstoque (string estoque)
+    {
+        this.estoque = estoque;
+    }
+
+    public string GetEstoque()
+    {
+        return estoque;
     }
 
 }

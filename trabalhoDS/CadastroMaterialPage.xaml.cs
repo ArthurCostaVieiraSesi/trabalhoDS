@@ -1,9 +1,12 @@
+using Controles;
 using Microsoft.Maui.Controls;
+using Modelos;
 
 namespace trabalhoDS
 {
     public partial class CadastroMaterialPage : ContentPage
     {
+        MaterialControle materialControle = new MaterialControle();
         public CadastroMaterialPage()
         {
             InitializeComponent();
@@ -24,9 +27,11 @@ namespace trabalhoDS
             }
             else
             {
-            string nome = NomeEntry.Text;
-            string descricao = DescricaoEntry.Text;
-            string custo = CustoEntry.Text;
+                var m = new Material();
+                m.nome = NomeEntry.Text;
+                m.descricao = DescricaoEntry.Text;
+                m.custo = CustoEntry.Text;
+                materialControle.CriarOuAtualizar(m);
 
             ErrorFrame.IsVisible = false;
             Application.Current.MainPage = new GerenciarMateriaisPage();

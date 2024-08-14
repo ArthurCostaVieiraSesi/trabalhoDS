@@ -1,9 +1,12 @@
+using Controles;
 using Microsoft.Maui.Controls;
+using Modelos;
 
 namespace trabalhoDS
 {
     public partial class CadastroClientePage : ContentPage
     {
+        ClienteControle clienteControle = new ClienteControle();
         public CadastroClientePage()
         {
             InitializeComponent();
@@ -25,10 +28,12 @@ namespace trabalhoDS
             }
             else
             {
-            string nome = NomeEntry.Text;
-            string telefone = TelefoneEntry.Text;
-            string cpf = CpfEntry.Text;
-            string email = EmailEntry.Text;
+                var c = new Cliente();
+                c.nome = NomeEntry.Text;
+                c.telefone = TelefoneEntry.Text;
+                c.cpf = CpfEntry.Text;
+                c.email = EmailEntry.Text;
+                clienteControle.CriarOuAtualizar(c);
 
             ErrorFrame.IsVisible = false;
             Application.Current.MainPage = new GerenciarClientesPage();

@@ -1,3 +1,5 @@
+using LiteDB;
+
 using Modelos;
 
 namespace Venda
@@ -5,11 +7,13 @@ namespace Venda
     public class Venda : Registro
     {
         Cliente cliente;
-        string datap;
-        string datae;
-        string total;
-        string desconto;
-        int id;
+        public string datap { get; set; }
+        public string datae { get; set; }
+        public string total { get; set; }
+        public string desconto { get; set; }
+
+        [BsonId]
+        public int id { get; set; }
         Estoque estoque;
 
         public void SetCliente (Cliente cliente)
