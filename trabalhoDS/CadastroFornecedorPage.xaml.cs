@@ -31,10 +31,10 @@ namespace trabalhoDS
             {
                 var f = new Fornecedor();
                 f.nome = NomeEntry.Text;
-                f.cnpjCpf = CnpjCpfEntry.Text;
+                f.cpf = CnpjCpfEntry.Text;
                 f.cep = CepEntry.Text;
                 f.telefone = TelefoneEntry.Text;
-                f.materiais = MateriaisEditor.Text;
+                //f.materiais = MateriaisEditor.Text;
                 fornecedorControle.CriarOuAtualizar(f);
 
             ErrorFrame.IsVisible = false;

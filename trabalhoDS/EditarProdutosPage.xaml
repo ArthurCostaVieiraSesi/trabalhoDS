@@ -11,7 +11,7 @@
             <Label Text="EDITAR PRODUTOS" FontSize="Large" TextColor="#FFD600" HorizontalOptions="Center"/>
 
             <!-- Product List -->
-            <Frame BackgroundColor="LightBlue" BorderColor="Gray" CornerRadius="10" Padding="10">
+            <Frame BackgroundColor="LightBlue" BorderColor="#e7f3f8" CornerRadius="10" Padding="10">
                 <ListView x:Name="ProductsListView" HasUnevenRows="True" SeparatorVisibility="None">
                     <ListView.ItemTemplate>
                         <DataTemplate>

@@ -3,7 +3,7 @@ namespace Modelos
 public class Produto : Item
 {
 
-    Material material;
+    public Material material;
 
     public string preco { get; set; }
 

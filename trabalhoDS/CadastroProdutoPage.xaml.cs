@@ -34,7 +34,7 @@ namespace trabalhoDS
                 p.estoque = EstoqueEntry.Text;
                 p.preco = PrecoEntry.Text;
                 p.custo = CustoProducaoEntry.Text;
-                p.material = MateriaisEditor.Text;
+                //p.material = MateriaisEditor.Text;
                 produtoControle.CriarOuAtualizar(p);
 
             ErrorFrame.IsVisible = false;

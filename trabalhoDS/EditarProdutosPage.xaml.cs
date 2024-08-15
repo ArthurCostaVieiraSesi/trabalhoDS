@@ -26,7 +26,7 @@ namespace trabalhoDS
 
         private void OnBackButtonClicked(object sender, EventArgs e)
         {
-            // Implementar a navegação de volta
+            Application.Current.MainPage = new GerenciarProdutosPage();
         }
 
         private void OnEditButtonClicked(object sender, EventArgs e)

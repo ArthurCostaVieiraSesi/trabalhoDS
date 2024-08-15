@@ -2,7 +2,7 @@ namespace Modelos
 {
     public class Material : Item
     {
-        Fornecedor fornecedor;
+        public Fornecedor fornecedor;
         public string descricao { get; set; }
 
     public void SetFornecedor (Fornecedor fornecedor)

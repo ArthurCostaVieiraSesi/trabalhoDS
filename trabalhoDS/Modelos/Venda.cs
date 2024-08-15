@@ -6,7 +6,7 @@ namespace Venda
 {
     public class Venda : Registro
     {
-        Cliente cliente;
+        public Cliente cliente;
         public string datap { get; set; }
         public string datae { get; set; }
         public string total { get; set; }
