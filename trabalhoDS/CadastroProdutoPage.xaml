@@ -33,11 +33,14 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
                 <Button Text="◀" BackgroundColor="Red" TextColor="Black" Grid.Column="0"
                         Clicked="OnBackButtonClicked"/>
-                <Button Text="▶" BackgroundColor="Green" TextColor="Black" Grid.Column="1"
+                <ImageButton Source="delete_icon.png" BackgroundColor="DarkRed" Grid.Column="1" HeightRequest="60" WidthRequest="60" CornerRadius="10"
+                        />
+                <Button Text="▶" BackgroundColor="Green" TextColor="Black" Grid.Column="2"
                         Clicked="OnSaveButtonClicked"/>
             </Grid>
 

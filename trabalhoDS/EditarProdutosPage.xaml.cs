@@ -1,27 +1,26 @@
 using Microsoft.Maui.Controls;
+using Modelos;
 using System.Collections.ObjectModel;
 
 namespace trabalhoDS
 {
     public partial class EditarProdutosPage : ContentPage
     {
-        public ObservableCollection<Product> Products { get; set; }
+
+        Controles.ProdutoControle produtoControle = new Controles.ProdutoControle();
 
         public EditarProdutosPage()
         {
             InitializeComponent();
 
-            // Exemplo de produtos
-            Products = new ObservableCollection<Product>
-            {
-                new Product { Name = "Exemplo de produtos 1" },
-                new Product { Name = "Exemplo de produtos 2" },
-                new Product { Name = "Exemplo de produtos 3" },
-                new Product { Name = "Exemplo de produtos 4" },
-                new Product { Name = "Exemplo de produtos 5" },
-            };
+            ProductsListView.ItemsSource = produtoControle.LerTodos();
+        }
 
-            ProductsListView.ItemsSource = Products;
+        void QuandoSelecionarUmItemNaLista(object sender, SelectedItemChangedEventArgs e)
+        {
+        var page = new CadastroProdutoPage();
+        page.produto = e.SelectedItem as Produto;
+        Application.Current.MainPage = page;
         }
 
         private void OnBackButtonClicked(object sender, EventArgs e)
@@ -29,22 +28,7 @@ namespace trabalhoDS
             Application.Current.MainPage = new GerenciarProdutosPage();
         }
 
-        private void OnEditButtonClicked(object sender, EventArgs e)
-        {
-            var product = (Product)((ImageButton)sender).CommandParameter;
-            // Implementar a edição do produto
-        }
-
-        private void OnDeleteButtonClicked(object sender, EventArgs e)
-        {
-            var product = (Product)((ImageButton)sender).CommandParameter;
-            Products.Remove(product);
-            // Implementar a remoção do produto
-        }
     }
 
-    public class Product
-    {
-        public string Name { get; set; }
-    }
+    
 }

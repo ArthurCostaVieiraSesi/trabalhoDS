@@ -7,6 +7,7 @@ namespace trabalhoDS
     public partial class CadastroProdutoPage : ContentPage
     {
         ProdutoControle produtoControle = new ProdutoControle();
+        public Produto produto;
         public CadastroProdutoPage()
         {
             InitializeComponent();
@@ -16,6 +17,8 @@ namespace trabalhoDS
         {
             Application.Current.MainPage = new GerenciarProdutosPage();
         }
+
+        
 
         private void OnSaveButtonClicked(object sender, EventArgs e)
         {

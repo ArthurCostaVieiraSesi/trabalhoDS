@@ -12,16 +12,12 @@
 
             <!-- Product List -->
             <Frame BackgroundColor="LightBlue" BorderColor="#e7f3f8" CornerRadius="10" Padding="10">
-                <ListView x:Name="ProductsListView" HasUnevenRows="True" SeparatorVisibility="None">
+                <ListView x:Name="ProductsListView" HasUnevenRows="True" SeparatorVisibility="None" ItemSelected="QuandoSelecionarUmItemNaLista">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout Orientation="Horizontal" Spacing="10" Padding="10">
                                     <Label Text="{Binding Name}" TextColor="Black" VerticalOptions="Center"/>
-                                    <ImageButton Source="edit_icon.png" WidthRequest="30" HeightRequest="30"
-                                                 Clicked="OnEditButtonClicked" CommandParameter="{Binding .}"/>
-                                    <ImageButton Source="delete_icon.png" WidthRequest="30" HeightRequest="30"
-                                                 Clicked="OnDeleteButtonClicked" CommandParameter="{Binding .}"/>
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
