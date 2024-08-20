@@ -6,8 +6,8 @@ namespace trabalhoDS
 {
     public partial class CadastroProdutoPage : ContentPage
     {
-        ProdutoControle produtoControle = new ProdutoControle();
-        public Produto produto;
+        Controles.ProdutoControle produtoControle = new Controles.ProdutoControle();
+        public Produto produto { get; set; }
         public CadastroProdutoPage()
         {
             InitializeComponent();
@@ -16,6 +16,20 @@ namespace trabalhoDS
         private void OnBackButtonClicked(object sender, EventArgs e)
         {
             Application.Current.MainPage = new GerenciarProdutosPage();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            if (produto != null)
+            {
+                DeleteButton.IsVisible = true;
+                NomeEntry.Text = produto.nome;
+                EstoqueEntry.Text = produto.estoque;
+                PrecoEntry.Text = produto.preco;
+                CustoProducaoEntry.Text = produto.custo;
+            }
         }
 
         
@@ -41,7 +55,18 @@ namespace trabalhoDS
                 produtoControle.CriarOuAtualizar(p);
 
             ErrorFrame.IsVisible = false;
-            Application.Current.MainPage = new GerenciarProdutosPage();
+            Application.Current.MainPage = new EditarProdutosPage();
+            }
+        }
+
+        private async void DeleteButtonClicked(object sender, EventArgs e)
+        {
+            if (produto == null)
+            await DisplayAlert("Erro", "Nenhum produto para excluir", "ok");
+            else if (await DisplayAlert("Excluir","Tem certeza que deseja excluir esse cliente?", "Excluir Cliente","cancelar"))
+            {
+                produtoControle.Apagar(produto.Id);
+                Application.Current.MainPage = new EditarProdutosPage();
             }
         }
 
