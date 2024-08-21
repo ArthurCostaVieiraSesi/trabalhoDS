@@ -9,7 +9,7 @@ namespace Modelos
 
     public string valor { get; set; }
 
-    public string desconto { get; set; }
+    public string quantidade { get; set; }
 
     public string obs { get; set; }
 

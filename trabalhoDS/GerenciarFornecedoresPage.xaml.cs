@@ -16,7 +16,7 @@ namespace trabalhoDS
 
         private void OnEditarProdutosClicked(object sender, EventArgs e)
         {
-            ErrorFrame.IsVisible = true;
+            Application.Current.MainPage = new EditarFornecedoresPage();
         }
 
         private void OnBackButtonClicked(object sender, EventArgs e)

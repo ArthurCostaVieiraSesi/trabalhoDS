@@ -6,7 +6,8 @@ namespace trabalhoDS
 {
     public partial class CadastroClientePage : ContentPage
     {
-        ClienteControle clienteControle = new ClienteControle();
+        Controles.ClienteControle clienteControle = new Controles.ClienteControle();
+        public Cliente cliente { get; set; }
         public CadastroClientePage()
         {
             InitializeComponent();
@@ -15,6 +16,20 @@ namespace trabalhoDS
         private void OnBackButtonClicked(object sender, EventArgs e)
         {
             Application.Current.MainPage = new GerenciarClientesPage();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            if (cliente != null)
+            {
+                DeleteButton.IsVisible = true;
+                NomeEntry.Text = cliente.nome;
+                CpfEntry.Text = cliente.cpf;
+                EmailEntry.Text = cliente.email;
+                TelefoneEntry.Text = cliente.telefone;
+            }
         }
 
         private void OnSaveButtonClicked(object sender, EventArgs e)
@@ -26,9 +41,12 @@ namespace trabalhoDS
             {
                 ErrorFrame.IsVisible = true;
             }
+                var c = new Cliente();
+            if (!String.IsNullOrEmpty(IdLabel.Text))
+                cliente.Id      = int.Parse(IdLabel.Text);
             else
             {
-                var c = new Cliente();
+                c.Id = 0;
                 c.nome = NomeEntry.Text;
                 c.telefone = TelefoneEntry.Text;
                 c.cpf = CpfEntry.Text;
@@ -36,7 +54,18 @@ namespace trabalhoDS
                 clienteControle.CriarOuAtualizar(c);
 
             ErrorFrame.IsVisible = false;
-            Application.Current.MainPage = new GerenciarClientesPage();
+            Application.Current.MainPage = new EditarClientesPage();
+            }
+        }
+
+        private async void DeleteButtonClicked(object sender, EventArgs e)
+        {
+            if (cliente == null || cliente.Id < 1)
+            await DisplayAlert("Erro", "Nenhum cliente para excluir", "ok");
+            else if (await DisplayAlert("Excluir","Tem certeza que deseja excluir esse cliente?", "Excluir Cliente","cancelar"))
+            {
+                clienteControle.Apagar(cliente.Id);
+                Application.Current.MainPage = new EditarClientesPage();
             }
         }
 

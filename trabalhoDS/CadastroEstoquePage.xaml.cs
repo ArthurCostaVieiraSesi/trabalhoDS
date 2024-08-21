@@ -1,4 +1,5 @@
 using Microsoft.Maui.Controls;
+using Modelos;
 
 namespace trabalhoDS
 {
@@ -20,7 +21,7 @@ namespace trabalhoDS
             // Verificar se todos os campos estão preenchidos
             if (string.IsNullOrWhiteSpace(ProdutoEntry.Text) ||
                 string.IsNullOrWhiteSpace(ValorEntry.Text) ||
-                string.IsNullOrWhiteSpace(DescontoEntry.Text) ||
+                string.IsNullOrWhiteSpace(QuantidadeEntry.Text) ||
                 string.IsNullOrWhiteSpace(ObsEntry.Text))
             {
                 // Exibir o Frame de erro
@@ -31,7 +32,7 @@ namespace trabalhoDS
                 // Aqui você pode adicionar a lógica para salvar os dados do estoque
                 string produto = ProdutoEntry.Text;
                 string valor = ValorEntry.Text;
-                string desconto = DescontoEntry.Text;
+                string desconto = QuantidadeEntry.Text;
                 string obs = ObsEntry.Text;
 
                 // Lógica para salvar os dados do estoque

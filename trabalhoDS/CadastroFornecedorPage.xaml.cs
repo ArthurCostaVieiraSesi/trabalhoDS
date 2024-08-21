@@ -6,10 +6,13 @@ namespace trabalhoDS
 {
     public partial class CadastroFornecedorPage : ContentPage
     {
-        FornecedorControle fornecedorControle = new FornecedorControle();
+        Controles.FornecedorControle fornecedorControle = new Controles.FornecedorControle();
+        Controles.MaterialControle materialControle = new Controles.MaterialControle();
+        public Fornecedor fornecedor { get; set; }
         public CadastroFornecedorPage()
         {
             InitializeComponent();
+            pickerMaterial.ItemsSource = materialControle.LerTodos();
         }
 
         private void OnBackButtonClicked(object sender, EventArgs e)
@@ -17,28 +20,56 @@ namespace trabalhoDS
             Application.Current.MainPage = new GerenciarFornecedoresPage();
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            if (fornecedor != null)
+            {
+                DeleteButton.IsVisible = true;
+                NomeEntry.Text = fornecedor.nome;
+                CnpjCpfEntry.Text = fornecedor.cpf;
+                CepEntry.Text = fornecedor.cep;
+                TelefoneEntry.Text = fornecedor.telefone;
+                pickerMaterial.SelectedItem = fornecedor.Material;
+            }
+        }
+
         private void OnSaveButtonClicked(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(NomeEntry.Text) ||
                 string.IsNullOrWhiteSpace(CnpjCpfEntry.Text) ||
                 string.IsNullOrWhiteSpace(CepEntry.Text) ||
-                string.IsNullOrWhiteSpace(TelefoneEntry.Text) ||
-                string.IsNullOrWhiteSpace(MateriaisEditor.Text))
+                string.IsNullOrWhiteSpace(TelefoneEntry.Text))
             {
                 ErrorFrame.IsVisible = true;
             }
+                var f = new Fornecedor();
+            if (!String.IsNullOrEmpty(IdLabel.Text))
+                fornecedor.Id      = int.Parse(IdLabel.Text);
             else
             {
-                var f = new Fornecedor();
+                f.Id = 0;
                 f.nome = NomeEntry.Text;
                 f.cpf = CnpjCpfEntry.Text;
                 f.cep = CepEntry.Text;
                 f.telefone = TelefoneEntry.Text;
-                //f.materiais = MateriaisEditor.Text;
+                f.Material = pickerMaterial.SelectedItem as Material;
                 fornecedorControle.CriarOuAtualizar(f);
 
             ErrorFrame.IsVisible = false;
-            Application.Current.MainPage = new GerenciarFornecedoresPage();
+            Application.Current.MainPage = new EditarFornecedoresPage();
+            }
+        }
+
+        private async void DeleteButtonClicked(object sender, EventArgs e)
+        {
+            if (fornecedor == null || fornecedor.Id < 1)
+            await DisplayAlert("Erro", "Nenhum fornecedor para excluir", "ok");
+            else if (await DisplayAlert("Excluir","Tem certeza que deseja excluir esse fornecedor?", "Excluir Fornecedor","cancelar"))
+            {
+                fornecedorControle.Apagar(fornecedor.Id);
+                Application.Current.MainPage = new EditarFornecedoresPage();
             }
         }
 

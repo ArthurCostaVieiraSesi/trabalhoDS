@@ -11,15 +11,18 @@
             <Label Text="CADASTRO DE ESTOQUE" FontSize="Large" TextColor="#FFD600" HorizontalOptions="Center"/>
 
             <!-- Form -->
-            <StackLayout Spacing="10">
+            <StackLayout Spacing="5">
+                <Label Text="ID:" FontSize="Medium" TextColor="White"/>
+                <Label x:Name="IdLabel" FontSize="Medium" TextColor="White"/>
+
                 <Label Text="PRODUTO:" FontSize="Medium" TextColor="White"/>
                 <Entry x:Name="ProdutoEntry" BackgroundColor="White" TextColor="Black"/>
 
                 <Label Text="VALOR:" FontSize="Medium" TextColor="White"/>
                 <Entry x:Name="ValorEntry" BackgroundColor="White" TextColor="Black"/>
 
-                <Label Text="DESCONTO:" FontSize="Medium" TextColor="White"/>
-                <Entry x:Name="DescontoEntry" BackgroundColor="White" TextColor="Black"/>
+                <Label Text="QUANTIDADE:" FontSize="Medium" TextColor="White"/>
+                <Entry x:Name="QuantidadeEntry" BackgroundColor="White" TextColor="Black"/>
 
                 <Label Text="OBS:" FontSize="Medium" TextColor="White"/>
                 <Entry x:Name="ObsEntry" BackgroundColor="White" TextColor="Black"/>
@@ -30,11 +33,14 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
                 <Button Text="◀" BackgroundColor="Red" TextColor="Black" Grid.Column="0"
                         Clicked="OnBackButtonClicked"/>
-                <Button Text="▶" BackgroundColor="Green" TextColor="Black" Grid.Column="1"
+                <ImageButton Source="delete_icon.png" x:Name="DeleteButton" BackgroundColor="DarkRed" Grid.Column="1" IsVisible="False" HeightRequest="60" WidthRequest="60" CornerRadius="10"
+                        Clicked="DeleteButtonClicked"/>
+                <Button Text="▶" BackgroundColor="Green" TextColor="Black" Grid.Column="2"
                         Clicked="OnSaveButtonClicked"/>
             </Grid>
 

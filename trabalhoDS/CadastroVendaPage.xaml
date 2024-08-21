@@ -11,9 +11,12 @@
             <Label Text="CADASTRO DE VENDA" FontSize="Large" TextColor="#FFD600" HorizontalOptions="Center"/>
 
             <!-- Form -->
-            <StackLayout Spacing="10">
+            <StackLayout Spacing="5">  
+                <Label Text="ID:" FontSize="Medium" TextColor="White"/>
+                <Label x:Name="IdLabel" FontSize="Medium" TextColor="White"/>
+
                 <Label Text="CLIENTE:" FontSize="Medium" TextColor="White"/>
-                <Entry x:Name="ClienteEntry" BackgroundColor="White" TextColor="Black"/>
+                <Picker x:Name="pickerCliente" ItemDisplayBinding="{Binding nome}"/>
 
                 <Label Text="DATA PEDIDO:" FontSize="Medium" TextColor="White"/>
                 <Entry x:Name="DataPedidoEntry" BackgroundColor="White" TextColor="Black"/>
@@ -27,8 +30,8 @@
                 <Label Text="DATA ENTREGA:" FontSize="Medium" TextColor="White"/>
                 <Entry x:Name="DataEntregaEntry" BackgroundColor="White" TextColor="Black"/>
 
-                <Label Text="LISTA ESTOQUE:" FontSize="Medium" TextColor="White"/>
-                <Entry x:Name="ListaEstoqueEntry" BackgroundColor="White" TextColor="Black"/>
+                <Label Text="PRODUTO:" FontSize="Medium" TextColor="White"/>
+                <Picker x:Name="pickerProduto" ItemDisplayBinding="{Binding nome}"/>
             </StackLayout>
 
             <!-- Buttons -->
@@ -36,11 +39,14 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
                 <Button Text="◀" BackgroundColor="Red" TextColor="Black" Grid.Column="0"
                         Clicked="OnBackButtonClicked"/>
-                <Button Text="▶" BackgroundColor="Green" TextColor="Black" Grid.Column="1"
+                <ImageButton Source="delete_icon.png" x:Name="DeleteButton" BackgroundColor="DarkRed" Grid.Column="1" IsVisible="False" HeightRequest="60" WidthRequest="60" CornerRadius="10"
+                        Clicked="DeleteButtonClicked"/>
+                <Button Text="▶" BackgroundColor="Green" TextColor="Black" Grid.Column="2"
                         Clicked="OnSaveButtonClicked"/>
             </Grid>
 

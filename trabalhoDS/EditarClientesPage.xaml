@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="trabalhoDS.EditarClientesPage"
+             BackgroundColor="#607D8B">
+
+    <Grid VerticalOptions="Center" HorizontalOptions="Center" Padding="20">
+        <StackLayout Spacing="10" HorizontalOptions="Center" VerticalOptions="Center">
+
+            <!-- Title -->
+            <Label Text="EDITAR CLIENTES" FontSize="Large" TextColor="#FFD600" HorizontalOptions="Center"/>
+
+            <!-- Product List -->
+            <Frame BackgroundColor="LightBlue" BorderColor="#e7f3f8" CornerRadius="10" Padding="10">
+                <ListView x:Name="ProductsListView" HasUnevenRows="True" SeparatorVisibility="None" ItemSelected="QuandoSelecionarUmItemNaLista">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" Spacing="10" Padding="10">
+                                    <Label Text="{Binding nome}" TextColor="Black" VerticalOptions="Center"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Frame>
+
+            <!-- Back Button -->
+            <Button Text="◀" BackgroundColor="Red" TextColor="Black" HorizontalOptions="Start"
+                    Clicked="OnBackButtonClicked"/>
+        </StackLayout>
+    </Grid>
+</ContentPage>

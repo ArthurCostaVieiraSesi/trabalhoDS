@@ -1,12 +1,19 @@
 using Microsoft.Maui.Controls;
+using Modelos;
 
 namespace trabalhoDS
 {
     public partial class CadastroVendaPage : ContentPage
     {
+        Controles.VendaControle vendaControle = new Controles.VendaControle();
+        Controles.ProdutoControle produtoControle = new Controles.ProdutoControle();
+        Controles.ClienteControle clienteControle = new Controles.ClienteControle();
+        public Venda venda { get; set; }
         public CadastroVendaPage()
         {
             InitializeComponent();
+            pickerCliente.ItemsSource = clienteControle.LerTodos();
+            pickerProduto.ItemsSource = produtoControle.LerTodos();
         }
 
         private void OnBackButtonClicked(object sender, EventArgs e)
@@ -18,12 +25,10 @@ namespace trabalhoDS
         {
             // Implementar a ação do botão salvar
             // Verificar se todos os campos estão preenchidos
-            if (string.IsNullOrWhiteSpace(ClienteEntry.Text) ||
-                string.IsNullOrWhiteSpace(DataPedidoEntry.Text) ||
+            if (string.IsNullOrWhiteSpace(DataPedidoEntry.Text) ||
                 string.IsNullOrWhiteSpace(TotalEntry.Text) ||
                 string.IsNullOrWhiteSpace(DescontoEntry.Text) ||
-                string.IsNullOrWhiteSpace(DataEntregaEntry.Text) ||
-                string.IsNullOrWhiteSpace(ListaEstoqueEntry.Text))
+                string.IsNullOrWhiteSpace(DataEntregaEntry.Text))
             {
                 // Exibir o Frame de erro
                 ErrorFrame.IsVisible = true;
@@ -32,13 +37,11 @@ namespace trabalhoDS
             {
                 // Aqui você pode adicionar a lógica para salvar os dados da venda
                 string cliente = ClienteEntry.Text;
-                string dataPedido = DataPedidoEntry.Text;
-                string total = TotalEntry.Text;
-                string desconto = DescontoEntry.Text;
-                string dataEntrega = DataEntregaEntry.Text;
+                v.dataPedido = DataPedidoEntry.Text;
+                v.total = TotalEntry.Text;
+                v.desconto = DescontoEntry.Text;
+                v.dataEntrega = DataEntregaEntry.Text;
                 string listaEstoque = ListaEstoqueEntry.Text;
-
-                // Lógica para salvar os dados da venda
 
                 // Esconder o Frame de erro caso esteja visível
                 ErrorFrame.IsVisible = false;

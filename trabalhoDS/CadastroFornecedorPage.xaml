@@ -11,7 +11,10 @@
             <Label Text="CADASTRO DE FORNECEDOR" FontSize="Large" TextColor="#FFD600" HorizontalOptions="Center"/>
 
             <!-- Form -->
-            <StackLayout Spacing="10">
+            <StackLayout Spacing="5">
+                <Label Text="ID:" FontSize="Medium" TextColor="White"/>
+                <Label x:Name="IdLabel" FontSize="Medium" TextColor="White"/>
+
                 <Label Text="NOME:" FontSize="Medium" TextColor="White"/>
                 <Entry x:Name="NomeEntry" BackgroundColor="White" TextColor="Black"/>
 
@@ -25,7 +28,7 @@
                 <Entry x:Name="TelefoneEntry" BackgroundColor="White" TextColor="Black"/>
 
                 <Label Text="MATERIAIS FORNECIDOS:" FontSize="Medium" TextColor="White"/>
-                <Editor x:Name="MateriaisEditor" BackgroundColor="White" TextColor="Black" HeightRequest="100"/>
+                <Picker x:Name="pickerMaterial" ItemDisplayBinding="{Binding Nome}"/>
             </StackLayout>
 
             <!-- Buttons -->
@@ -33,11 +36,14 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
                 <Button Text="◀" BackgroundColor="Red" TextColor="Black" Grid.Column="0"
                         Clicked="OnBackButtonClicked"/>
-                <Button Text="▶" BackgroundColor="Green" TextColor="Black" Grid.Column="1"
+                <ImageButton Source="delete_icon.png" x:Name="DeleteButton" BackgroundColor="DarkRed" Grid.Column="1" IsVisible="False" HeightRequest="60" WidthRequest="60" CornerRadius="10"
+                        Clicked="DeleteButtonClicked"/>
+                <Button Text="▶" BackgroundColor="Green" TextColor="Black" Grid.Column="2"
                         Clicked="OnSaveButtonClicked"/>
             </Grid>
 

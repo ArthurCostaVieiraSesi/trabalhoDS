@@ -11,7 +11,10 @@
             <Label Text="CADASTRO DE PRODUTO" FontSize="Large" TextColor="#FFD600" HorizontalOptions="Center"/>
 
             <!-- Form -->
-            <StackLayout Spacing="10">
+            <StackLayout Spacing="5">
+                <Label Text="ID:" FontSize="Medium" TextColor="White"/>
+                <Label x:Name="IdLabel" FontSize="Medium" TextColor="White"/>
+
                 <Label Text="NOME:" FontSize="Medium" TextColor="White"/>
                 <Entry x:Name="NomeEntry" BackgroundColor="White" TextColor="Black"/>
 
@@ -24,8 +27,8 @@
                 <Label Text="CUSTO DE PRODUÇÃO:" FontSize="Medium" TextColor="White"/>
                 <Entry x:Name="CustoProducaoEntry" BackgroundColor="White" TextColor="Black"/>
 
-                <Label Text="MATERIAIS FORNECIDOS:" FontSize="Medium" TextColor="White"/>
-                <Editor x:Name="MateriaisEditor" BackgroundColor="White" TextColor="Black" HeightRequest="100"/>
+                <Label Text="MATERIAIS UTILIZADOS:" FontSize="Medium" TextColor="White"/>
+                <Picker x:Name="pickerMaterial" ItemDisplayBinding="{Binding Nome}"/>
             </StackLayout>
 
             <!-- Buttons -->
