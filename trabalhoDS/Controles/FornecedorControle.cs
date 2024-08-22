@@ -13,10 +13,10 @@ public class FornecedorControle : BaseControle
 
   //----------------------------------------------------------------------------
 
-  public virtual Registro? Ler(int id)
+  public virtual Registro? Ler(int idFornecedor)
   {
     var collection = liteDB.GetCollection<Fornecedor>(NomeDaTabela);
-    return collection.FindOne(d => d.Id == id);
+    return collection.FindOne(d => d.Id == idFornecedor);
   }
 
   //----------------------------------------------------------------------------
@@ -29,10 +29,10 @@ public class FornecedorControle : BaseControle
 
   //----------------------------------------------------------------------------
 
-  public virtual void Apagar(int id)
+  public virtual void Apagar(int idFornecedor)
   {
     var collection = liteDB.GetCollection<Fornecedor>(NomeDaTabela);
-    collection.Delete(id);
+    collection.Delete(idFornecedor);
   }
 
   //----------------------------------------------------------------------------

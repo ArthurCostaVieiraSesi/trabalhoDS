@@ -13,10 +13,10 @@ public class VendaControle : BaseControle
 
   //----------------------------------------------------------------------------
 
-  public virtual Registro? Ler(int id)
+  public virtual Registro? Ler(int idVenda)
   {
     var collection = liteDB.GetCollection<Venda>(NomeDaTabela);
-    return collection.FindOne(d => d.Id == id);
+    return collection.FindOne(d => d.Id == idVenda);
   }
 
   //----------------------------------------------------------------------------
@@ -29,10 +29,10 @@ public class VendaControle : BaseControle
 
   //----------------------------------------------------------------------------
 
-  public virtual void Apagar(int id)
+  public virtual void Apagar(int idVenda)
   {
     var collection = liteDB.GetCollection<Venda>(NomeDaTabela);
-    collection.Delete(id);
+    collection.Delete(idVenda);
   }
 
   //----------------------------------------------------------------------------

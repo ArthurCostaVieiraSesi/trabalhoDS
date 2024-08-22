@@ -13,10 +13,10 @@ public class EstoqueControle : BaseControle
 
   //----------------------------------------------------------------------------
 
-  public virtual Registro? Ler(int id)
+  public virtual Registro? Ler(int idEstoque)
   {
     var collection = liteDB.GetCollection<Estoque>(NomeDaTabela);
-    return collection.FindOne(d => d.Id == id);
+    return collection.FindOne(d => d.Id == idEstoque);
   }
 
   //----------------------------------------------------------------------------
@@ -29,18 +29,18 @@ public class EstoqueControle : BaseControle
 
   //----------------------------------------------------------------------------
 
-  public virtual void Apagar(int id)
+  public virtual void Apagar(int idEstoque)
   {
     var collection = liteDB.GetCollection<Estoque>(NomeDaTabela);
-    collection.Delete(id);
+    collection.Delete(idEstoque);
   }
 
   //----------------------------------------------------------------------------
 
-  public virtual void CriarOuAtualizar(Estoque e)
+  public virtual void CriarOuAtualizar(Estoque es)
   {
     var collection = liteDB.GetCollection<Estoque>(NomeDaTabela);
-    collection.Upsert(e);
+    collection.Upsert(es);
   }
 
   //----------------------------------------------------------------------------

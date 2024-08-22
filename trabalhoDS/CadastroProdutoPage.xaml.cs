@@ -27,6 +27,7 @@ namespace trabalhoDS
             if (produto != null)
             {
                 DeleteButton.IsVisible = true;
+                IdLabel.Text = produto.Id.ToString();
                 NomeEntry.Text = produto.nome;
                 EstoqueEntry.Text = produto.estoque;
                 PrecoEntry.Text = produto.preco;
@@ -45,12 +46,12 @@ namespace trabalhoDS
                 string.IsNullOrWhiteSpace(CustoProducaoEntry.Text))
             {
                 ErrorFrame.IsVisible = true;
-            }
+            
                 var p = new Produto();
             if (!String.IsNullOrEmpty(IdLabel.Text))
-                produto.Id      = int.Parse(IdLabel.Text);
+                p.Id      = int.Parse(IdLabel.Text);
             else
-            {
+            
                 p.Id = 0;
                 p.nome = NomeEntry.Text;
                 p.estoque = EstoqueEntry.Text;

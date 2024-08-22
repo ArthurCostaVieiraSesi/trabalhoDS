@@ -27,6 +27,7 @@ namespace trabalhoDS
             if (fornecedor != null)
             {
                 DeleteButton.IsVisible = true;
+                IdLabel.Text = fornecedor.Id.ToString();
                 NomeEntry.Text = fornecedor.nome;
                 CnpjCpfEntry.Text = fornecedor.cpf;
                 CepEntry.Text = fornecedor.cep;
@@ -43,12 +44,12 @@ namespace trabalhoDS
                 string.IsNullOrWhiteSpace(TelefoneEntry.Text))
             {
                 ErrorFrame.IsVisible = true;
-            }
+            
                 var f = new Fornecedor();
             if (!String.IsNullOrEmpty(IdLabel.Text))
-                fornecedor.Id      = int.Parse(IdLabel.Text);
+                f.Id      = int.Parse(IdLabel.Text);
             else
-            {
+            
                 f.Id = 0;
                 f.nome = NomeEntry.Text;
                 f.cpf = CnpjCpfEntry.Text;

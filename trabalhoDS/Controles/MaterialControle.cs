@@ -13,10 +13,10 @@ public class MaterialControle : BaseControle
 
   //----------------------------------------------------------------------------
 
-  public virtual Registro? Ler(int id)
+  public virtual Registro? Ler(int idMaterial)
   {
     var collection = liteDB.GetCollection<Material>(NomeDaTabela);
-    return collection.FindOne(d => d.Id == id);
+    return collection.FindOne(d => d.Id == idMaterial);
   }
 
   //----------------------------------------------------------------------------
@@ -30,10 +30,10 @@ public class MaterialControle : BaseControle
 
   //----------------------------------------------------------------------------
 
-  public virtual void Apagar(int id)
+  public virtual void Apagar(int idMaterial)
   {
     var collection = liteDB.GetCollection<Material>(NomeDaTabela);
-    collection.Delete(id);
+    collection.Delete(idMaterial);
   }
 
   //----------------------------------------------------------------------------

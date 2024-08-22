@@ -25,6 +25,7 @@ namespace trabalhoDS
             if (material != null)
             {
                 DeleteButton.IsVisible = true;
+                IdLabel.Text = material.Id.ToString();
                 NomeEntry.Text = material.nome;
                 DescricaoEntry.Text = material.descricao;
                 CustoEntry.Text = material.custo;
@@ -38,12 +39,12 @@ namespace trabalhoDS
                 string.IsNullOrWhiteSpace(CustoEntry.Text))
             {
                 ErrorFrame.IsVisible = true;
-            }
+            
                 var m = new Material();
             if (!String.IsNullOrEmpty(IdLabel.Text))
-                material.Id      = int.Parse(IdLabel.Text);
+                m.Id      = int.Parse(IdLabel.Text);
             else
-            {
+            
                 m.Id = 0;
                 m.nome = NomeEntry.Text;
                 m.descricao = DescricaoEntry.Text;

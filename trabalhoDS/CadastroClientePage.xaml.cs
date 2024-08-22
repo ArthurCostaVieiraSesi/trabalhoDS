@@ -25,6 +25,7 @@ namespace trabalhoDS
             if (cliente != null)
             {
                 DeleteButton.IsVisible = true;
+                IdLabel.Text = cliente.Id.ToString();
                 NomeEntry.Text = cliente.nome;
                 CpfEntry.Text = cliente.cpf;
                 EmailEntry.Text = cliente.email;
@@ -40,12 +41,12 @@ namespace trabalhoDS
                 string.IsNullOrWhiteSpace(EmailEntry.Text))
             {
                 ErrorFrame.IsVisible = true;
-            }
+            
                 var c = new Cliente();
             if (!String.IsNullOrEmpty(IdLabel.Text))
-                cliente.Id      = int.Parse(IdLabel.Text);
+                c.Id      = int.Parse(IdLabel.Text);
             else
-            {
+            
                 c.Id = 0;
                 c.nome = NomeEntry.Text;
                 c.telefone = TelefoneEntry.Text;

@@ -5,7 +5,7 @@ namespace Modelos
     public class Estoque : Registro
     {
 
-    public Produto produto;
+    public Produto Produto;
 
     public string valor { get; set; }
 

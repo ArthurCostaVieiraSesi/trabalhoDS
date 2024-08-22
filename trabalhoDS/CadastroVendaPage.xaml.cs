@@ -21,6 +21,23 @@ namespace trabalhoDS
             Application.Current.MainPage = new GerenciarVendasPage();
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            if (venda != null)
+            {
+                DeleteButton.IsVisible = true;
+                IdLabel.Text = venda.Id.ToString();
+                DescontoEntry.Text = venda.desconto;
+                DataPedidoEntry.Text = venda.datap;
+                DataEntregaEntry.Text = venda.datae;
+                TotalEntry.Text = venda.total;
+                pickerCliente.SelectedItem = venda.Cliente;
+                pickerProduto.SelectedItem = venda.Produto;
+            }
+        }
+
         private void OnSaveButtonClicked(object sender, EventArgs e)
         {
             // Implementar a ação do botão salvar
@@ -32,20 +49,36 @@ namespace trabalhoDS
             {
                 // Exibir o Frame de erro
                 ErrorFrame.IsVisible = true;
-            }
+            
+                var v = new Venda();
+            if (!String.IsNullOrEmpty(IdLabel.Text))
+                v.Id      = int.Parse(IdLabel.Text);
             else
-            {
+            
                 // Aqui você pode adicionar a lógica para salvar os dados da venda
-                string cliente = ClienteEntry.Text;
-                v.dataPedido = DataPedidoEntry.Text;
+                v.Id = 0;
+                v.datap = DataPedidoEntry.Text;
                 v.total = TotalEntry.Text;
                 v.desconto = DescontoEntry.Text;
-                v.dataEntrega = DataEntregaEntry.Text;
-                string listaEstoque = ListaEstoqueEntry.Text;
+                v.datae = DataEntregaEntry.Text;
+                v.Cliente = pickerCliente.SelectedItem as Cliente;
+                v.Produto = pickerProduto.SelectedItem as Produto;
+                vendaControle.CriarOuAtualizar(v);
 
                 // Esconder o Frame de erro caso esteja visível
                 ErrorFrame.IsVisible = false;
-                Application.Current.MainPage = new GerenciarVendasPage();
+                Application.Current.MainPage = new EditarVendasPage();
+            }
+        }
+
+        private async void DeleteButtonClicked(object sender, EventArgs e)
+        {
+            if (venda == null || venda.Id < 1)
+            await DisplayAlert("Erro", "Nenhuma venda para excluir", "ok");
+            else if (await DisplayAlert("Excluir","Tem certeza que deseja excluir essa venda?", "Excluir Venda","cancelar"))
+            {
+                produtoControle.Apagar(venda.Id);
+                Application.Current.MainPage = new EditarVendasPage();
             }
         }
 

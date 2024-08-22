@@ -16,7 +16,7 @@ namespace trabalhoDS
 
         private void OnEditarProdutosClicked(object sender, EventArgs e)
         {
-            Application.Current.MainPage = new EditarProdutosPage();
+            Application.Current.MainPage = new EditarMateriaisPage();
         }
 
         private void OnBackButtonClicked(object sender, EventArgs e)

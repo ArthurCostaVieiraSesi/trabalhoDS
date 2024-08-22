@@ -31,7 +31,7 @@
                 <Entry x:Name="DataEntregaEntry" BackgroundColor="White" TextColor="Black"/>
 
                 <Label Text="PRODUTO:" FontSize="Medium" TextColor="White"/>
-                <Picker x:Name="pickerProduto" ItemDisplayBinding="{Binding nome}"/>
+                <Picker x:Name="pickerProduto" ItemDisplayBinding="{Binding nome}" BackgroundColor="White"/>
             </StackLayout>
 
             <!-- Buttons -->
