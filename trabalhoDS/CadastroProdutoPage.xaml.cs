@@ -36,23 +36,23 @@ namespace trabalhoDS
             }
         }
 
-        
+
 
         private void OnSaveButtonClicked(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(NomeEntry.Text) ||
-                string.IsNullOrWhiteSpace(EstoqueEntry.Text) ||
-                string.IsNullOrWhiteSpace(PrecoEntry.Text) ||
-                string.IsNullOrWhiteSpace(CustoProducaoEntry.Text))
+            if (!string.IsNullOrWhiteSpace(NomeEntry.Text) &&
+                !string.IsNullOrWhiteSpace(EstoqueEntry.Text) &&
+                !string.IsNullOrWhiteSpace(PrecoEntry.Text) &&
+                !string.IsNullOrWhiteSpace(CustoProducaoEntry.Text))
             {
                 ErrorFrame.IsVisible = true;
-            
+
                 var p = new Produto();
-            if (!String.IsNullOrEmpty(IdLabel.Text))
-                p.Id      = int.Parse(IdLabel.Text);
-            else
-            
-                p.Id = 0;
+                if (!String.IsNullOrEmpty(IdLabel.Text))
+                    p.Id = int.Parse(IdLabel.Text);
+                else
+
+                    p.Id = 0;
                 p.nome = NomeEntry.Text;
                 p.estoque = EstoqueEntry.Text;
                 p.preco = PrecoEntry.Text;
@@ -60,16 +60,16 @@ namespace trabalhoDS
                 p.Material = pickerMaterial.SelectedItem as Material;
                 produtoControle.CriarOuAtualizar(p);
 
-            ErrorFrame.IsVisible = false;
-            Application.Current.MainPage = new EditarProdutosPage();
+                ErrorFrame.IsVisible = false;
+                Application.Current.MainPage = new EditarProdutosPage();
             }
         }
 
         private async void DeleteButtonClicked(object sender, EventArgs e)
         {
             if (produto == null || produto.Id < 1)
-            await DisplayAlert("Erro", "Nenhum produto para excluir", "ok");
-            else if (await DisplayAlert("Excluir","Tem certeza que deseja excluir esse produto?", "Excluir Produto","cancelar"))
+                await DisplayAlert("Erro", "Nenhum produto para excluir", "ok");
+            else if (await DisplayAlert("Excluir", "Tem certeza que deseja excluir esse produto?", "Excluir Produto", "cancelar"))
             {
                 produtoControle.Apagar(produto.Id);
                 Application.Current.MainPage = new EditarProdutosPage();

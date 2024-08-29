@@ -38,19 +38,19 @@ namespace trabalhoDS
 
         private void OnSaveButtonClicked(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(NomeEntry.Text) ||
-                string.IsNullOrWhiteSpace(CnpjCpfEntry.Text) ||
-                string.IsNullOrWhiteSpace(CepEntry.Text) ||
-                string.IsNullOrWhiteSpace(TelefoneEntry.Text))
+            if (!string.IsNullOrWhiteSpace(NomeEntry.Text) &&
+                !string.IsNullOrWhiteSpace(CnpjCpfEntry.Text) &&
+                !string.IsNullOrWhiteSpace(CepEntry.Text) &&
+                !string.IsNullOrWhiteSpace(TelefoneEntry.Text))
             {
                 ErrorFrame.IsVisible = true;
-            
+
                 var f = new Fornecedor();
-            if (!String.IsNullOrEmpty(IdLabel.Text))
-                f.Id      = int.Parse(IdLabel.Text);
-            else
-            
-                f.Id = 0;
+                if (!String.IsNullOrEmpty(IdLabel.Text))
+                    f.Id = int.Parse(IdLabel.Text);
+                else
+
+                    f.Id = 0;
                 f.nome = NomeEntry.Text;
                 f.cpf = CnpjCpfEntry.Text;
                 f.cep = CepEntry.Text;
@@ -58,16 +58,16 @@ namespace trabalhoDS
                 f.Material = pickerMaterial.SelectedItem as Material;
                 fornecedorControle.CriarOuAtualizar(f);
 
-            ErrorFrame.IsVisible = false;
-            Application.Current.MainPage = new EditarFornecedoresPage();
+                ErrorFrame.IsVisible = false;
+                Application.Current.MainPage = new EditarFornecedoresPage();
             }
         }
 
         private async void DeleteButtonClicked(object sender, EventArgs e)
         {
             if (fornecedor == null || fornecedor.Id < 1)
-            await DisplayAlert("Erro", "Nenhum fornecedor para excluir", "ok");
-            else if (await DisplayAlert("Excluir","Tem certeza que deseja excluir esse fornecedor?", "Excluir Fornecedor","cancelar"))
+                await DisplayAlert("Erro", "Nenhum fornecedor para excluir", "ok");
+            else if (await DisplayAlert("Excluir", "Tem certeza que deseja excluir esse fornecedor?", "Excluir Fornecedor", "cancelar"))
             {
                 fornecedorControle.Apagar(fornecedor.Id);
                 Application.Current.MainPage = new EditarFornecedoresPage();

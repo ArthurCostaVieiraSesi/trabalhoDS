@@ -38,20 +38,20 @@ namespace trabalhoDS
         {
             // Implementar a ação do botão salvar
             // Verificar se todos os campos estão preenchidos
-            if (string.IsNullOrWhiteSpace(ValorEntry.Text) ||
-                string.IsNullOrWhiteSpace(QuantidadeEntry.Text) ||
-                string.IsNullOrWhiteSpace(ObsEntry.Text))
+            if (!string.IsNullOrWhiteSpace(ValorEntry.Text) &&
+                !string.IsNullOrWhiteSpace(QuantidadeEntry.Text) &&
+                !string.IsNullOrWhiteSpace(ObsEntry.Text))
             {
                 // Exibir o Frame de erro
                 ErrorFrame.IsVisible = true;
-            
+
                 var es = new Estoque();
-            if (!String.IsNullOrEmpty(IdLabel.Text))
-                es.Id      = int.Parse(IdLabel.Text);
-            else
-            
-                // Aqui você pode adicionar a lógica para salvar os dados do estoque
-                es.Id = 0;
+                if (!String.IsNullOrEmpty(IdLabel.Text))
+                    es.Id = int.Parse(IdLabel.Text);
+                else
+
+                    // Aqui você pode adicionar a lógica para salvar os dados do estoque
+                    es.Id = 0;
                 es.valor = ValorEntry.Text;
                 es.quantidade = QuantidadeEntry.Text;
                 es.obs = ObsEntry.Text;
@@ -69,8 +69,8 @@ namespace trabalhoDS
         private async void DeleteButtonClicked(object sender, EventArgs e)
         {
             if (estoque == null || estoque.Id < 1)
-            await DisplayAlert("Erro", "Nenhum estoque para excluir", "ok");
-            else if (await DisplayAlert("Excluir","Tem certeza que deseja excluir esse estoque?", "Excluir Estoque","cancelar"))
+                await DisplayAlert("Erro", "Nenhum estoque para excluir", "ok");
+            else if (await DisplayAlert("Excluir", "Tem certeza que deseja excluir esse estoque?", "Excluir Estoque", "cancelar"))
             {
                 produtoControle.Apagar(estoque.Id);
                 Application.Current.MainPage = new EditarEstoquesPage();

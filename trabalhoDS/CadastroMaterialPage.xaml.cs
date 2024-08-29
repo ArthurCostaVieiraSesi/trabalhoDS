@@ -34,33 +34,33 @@ namespace trabalhoDS
 
         private void OnSaveButtonClicked(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(NomeEntry.Text) ||
-                string.IsNullOrWhiteSpace(DescricaoEntry.Text) ||
-                string.IsNullOrWhiteSpace(CustoEntry.Text))
+            if (!string.IsNullOrWhiteSpace(NomeEntry.Text) &&
+                !string.IsNullOrWhiteSpace(DescricaoEntry.Text) &&
+                !string.IsNullOrWhiteSpace(CustoEntry.Text))
             {
                 ErrorFrame.IsVisible = true;
-            
+
                 var m = new Material();
-            if (!String.IsNullOrEmpty(IdLabel.Text))
-                m.Id      = int.Parse(IdLabel.Text);
-            else
-            
-                m.Id = 0;
+                if (!String.IsNullOrEmpty(IdLabel.Text))
+                    m.Id = int.Parse(IdLabel.Text);
+                else
+
+                    m.Id = 0;
                 m.nome = NomeEntry.Text;
                 m.descricao = DescricaoEntry.Text;
                 m.custo = CustoEntry.Text;
                 materialControle.CriarOuAtualizar(m);
 
-            ErrorFrame.IsVisible = false;
-            Application.Current.MainPage = new EditarMateriaisPage();
+                ErrorFrame.IsVisible = false;
+                Application.Current.MainPage = new EditarMateriaisPage();
             }
         }
 
         private async void DeleteButtonClicked(object sender, EventArgs e)
         {
             if (material == null || material.Id < 1)
-            await DisplayAlert("Erro", "Nenhum material para excluir", "ok");
-            else if (await DisplayAlert("Excluir","Tem certeza que deseja excluir esse material?", "Excluir Material","cancelar"))
+                await DisplayAlert("Erro", "Nenhum material para excluir", "ok");
+            else if (await DisplayAlert("Excluir", "Tem certeza que deseja excluir esse material?", "Excluir Material", "cancelar"))
             {
                 materialControle.Apagar(material.Id);
                 Application.Current.MainPage = new EditarMateriaisPage();

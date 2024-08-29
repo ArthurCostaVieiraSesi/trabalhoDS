@@ -20,8 +20,9 @@
 
             <!-- Buttons -->
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="20">
-                <Button Text="CADASTRO" BackgroundColor="#E0E0E0" TextColor="Black" WidthRequest="110" Clicked="Cadastro"/>
-                <Button Text="ENTRAR" BackgroundColor="#E0E0E0" TextColor="Black" WidthRequest="110" Clicked="Login"/>
+                <Button Text="CADASTRO" BackgroundColor="#E0E0E0" TextColor="Black" IsVisible="false" WidthRequest="110" Clicked="Cadastro"/>
+                <Button Text="MENU" BackgroundColor="#E0E0E0" TextColor="Black" WidthRequest="110" Clicked="Menu"/>
+                <Button Text="ENTRAR" BackgroundColor="#E0E0E0" TextColor="Black" IsVisible="false" WidthRequest="110" Clicked="Login"/>
             </StackLayout>
 
         </StackLayout>

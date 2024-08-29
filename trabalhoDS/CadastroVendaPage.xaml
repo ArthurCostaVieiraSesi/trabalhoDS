@@ -16,7 +16,7 @@
                 <Label x:Name="IdLabel" FontSize="Medium" TextColor="White"/>
 
                 <Label Text="CLIENTE:" FontSize="Medium" TextColor="White"/>
-                <Picker x:Name="pickerCliente" ItemDisplayBinding="{Binding nome}"/>
+                <Picker x:Name="pickerCliente" ItemDisplayBinding="{Binding nome}" BackgroundColor="White"/>
 
                 <Label Text="DATA PEDIDO:" FontSize="Medium" TextColor="White"/>
                 <Entry x:Name="DataPedidoEntry" BackgroundColor="White" TextColor="Black"/>

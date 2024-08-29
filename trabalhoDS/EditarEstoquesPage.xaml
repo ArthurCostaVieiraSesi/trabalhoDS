@@ -17,7 +17,7 @@
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout Orientation="Horizontal" Spacing="10" Padding="10">
-                                    <Label Text="{Binding Produto}" TextColor="Black" VerticalOptions="Center"/>
+                                    <Label Text="{Binding Produto.nome}" TextColor="Black" VerticalOptions="Center"/>
                                     <Label Text="{Binding valor}" TextColor="Black" VerticalOptions="Center"/>
                                     <Label Text="{Binding quantidade}" TextColor="Black" VerticalOptions="Center"/>
                                 </StackLayout>

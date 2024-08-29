@@ -18,5 +18,10 @@ namespace trabalhoDS
         {
 			Application.Current.MainPage = new LoginPage();
         }
+
+        void Menu(object sender, EventArgs e)
+        {
+			Application.Current.MainPage = new MenuPage();
+        }
     }
 }

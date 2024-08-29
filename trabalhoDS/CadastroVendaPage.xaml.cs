@@ -42,21 +42,21 @@ namespace trabalhoDS
         {
             // Implementar a ação do botão salvar
             // Verificar se todos os campos estão preenchidos
-            if (string.IsNullOrWhiteSpace(DataPedidoEntry.Text) ||
-                string.IsNullOrWhiteSpace(TotalEntry.Text) ||
-                string.IsNullOrWhiteSpace(DescontoEntry.Text) ||
-                string.IsNullOrWhiteSpace(DataEntregaEntry.Text))
+            if (!string.IsNullOrWhiteSpace(DataPedidoEntry.Text) &&
+                !string.IsNullOrWhiteSpace(TotalEntry.Text) &&
+                !string.IsNullOrWhiteSpace(DescontoEntry.Text) &&
+                !string.IsNullOrWhiteSpace(DataEntregaEntry.Text))
             {
                 // Exibir o Frame de erro
                 ErrorFrame.IsVisible = true;
-            
+
                 var v = new Venda();
-            if (!String.IsNullOrEmpty(IdLabel.Text))
-                v.Id      = int.Parse(IdLabel.Text);
-            else
-            
-                // Aqui você pode adicionar a lógica para salvar os dados da venda
-                v.Id = 0;
+                if (!String.IsNullOrEmpty(IdLabel.Text))
+                    v.Id = int.Parse(IdLabel.Text);
+                else
+
+                    // Aqui você pode adicionar a lógica para salvar os dados da venda
+                    v.Id = 0;
                 v.datap = DataPedidoEntry.Text;
                 v.total = TotalEntry.Text;
                 v.desconto = DescontoEntry.Text;
@@ -74,8 +74,8 @@ namespace trabalhoDS
         private async void DeleteButtonClicked(object sender, EventArgs e)
         {
             if (venda == null || venda.Id < 1)
-            await DisplayAlert("Erro", "Nenhuma venda para excluir", "ok");
-            else if (await DisplayAlert("Excluir","Tem certeza que deseja excluir essa venda?", "Excluir Venda","cancelar"))
+                await DisplayAlert("Erro", "Nenhuma venda para excluir", "ok");
+            else if (await DisplayAlert("Excluir", "Tem certeza que deseja excluir essa venda?", "Excluir Venda", "cancelar"))
             {
                 produtoControle.Apagar(venda.Id);
                 Application.Current.MainPage = new EditarVendasPage();

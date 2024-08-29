@@ -11,7 +11,7 @@
             <Label Text="MENU" FontSize="Large" TextColor="#FFD600" HorizontalOptions="Center"/>
 
             <!-- Description -->
-            <Label Text="Aqui é a pagina principal para você gestionar, abaixo você pode configurar e cadastrar seus fornecedores, estoques, materiais e produtos. Assim você pode observar os seus gastos e lucros, para saber a maneira mais otimizada de produzir."
+            <Label Text="Aqui é a pagina principal para você gestionar. Abaixo, é recomendado que começe cadastrando primeiro os Materiais, depois os Fornecedores e os outros tipos. Cadastre as Vendas e os Estoques por ultimo."
                    FontSize="Medium" TextColor="White" HorizontalTextAlignment="Center"/>
 
             <!-- Buttons -->
